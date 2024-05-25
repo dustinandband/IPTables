@@ -104,7 +104,9 @@ for ip in $WHITELISTED_IPS; do
 done
 
 #### These lengths will never be used for valid packets.
-iptables -A INPUT -p udp -m multiport --dports $GAMESERVERPORTS -m length --length 0:28 -j DROP
+iptables -A INPUT -p udp -m multiport --dports $GAMESERVERPORTS -m length --length 0:32 -j DROP
+iptables -A INPUT -p udp -m multiport --dports $GAMESERVERPORTS -m length --length 46 -j DROP
+iptables -A INPUT -p udp -m multiport --dports $GAMESERVERPORTS -m length --length 60 -j DROP
 iptables -A INPUT -p udp -m multiport --dports $GAMESERVERPORTS -m length --length 2521:65535 -j DROP
 
 #### A2S & Steam Group Server Queries
